@@ -1,0 +1,10 @@
+.*
+*.o
+*.i
+*.d
+*.g
+*.bin
+*.elf
+*.map
+*.patch
+!.gitignore
