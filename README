@@ -1,6 +1,6 @@
 Pré-requis:
 -----------
-$ sudo apt-get install qemu-sysem-x86 qemu-kvm gcc-multilib make git
+$ sudo apt-get install qemu-system-x86 qemu-kvm gcc-multilib make git
 $ git clone https://github.com/sduverger/secos
 
 
