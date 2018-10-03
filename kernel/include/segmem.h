@@ -259,11 +259,11 @@ typedef struct task_state_segment
 #define set_gs(v)    set_seg_sel(v,gs)
 
 #define get_gdtr(aLocation)       \
-   asm volatile ("sgdtl %0"::"m"(aLocation):"memory")
+   asm volatile ("sgdt %0"::"m"(aLocation):"memory")
 #define get_ldtr(aLocation)       \
-   asm volatile ("sldtl %0"::"m"(aLocation):"memory")
+   asm volatile ("sldt %0"::"m"(aLocation):"memory")
 #define get_idtr(aLocation)       \
-   asm volatile ("sidtl %0"::"m"(aLocation):"memory")
+   asm volatile ("sidt %0"::"m"(aLocation):"memory")
 #define get_tr(aLocation)         \
    asm volatile ("str   %0"::"m"(aLocation):"memory")
 
