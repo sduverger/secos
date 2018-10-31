@@ -157,8 +157,8 @@ typedef union page_table_entry
    })
 
 #include <string.h>
-#define __clear_page(_d)             __memset32(_d,  0, PAGE_SIZE)
-#define __copy_page(_d,_s)           __memcpy32(_d, _s, PAGE_SIZE)
+#define __clear_page(_d)             _memset32(_d,  0, PAGE_SIZE)
+#define __copy_page(_d,_s)           _memcpy32(_d, _s, PAGE_SIZE)
 
 /*
 ** Invalidate 32 bits TLB entry

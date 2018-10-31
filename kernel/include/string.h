@@ -39,6 +39,14 @@
 #define _memcpy8(d,s,t)     __fix_str_dir(__memcpy8,d,s,t,0)
 #define _memchr8(d,s,v,l)   __fix_str_dir(__memchr8,d,s,v,l)
 
+#define __memset32(d,v,t,l)  asm volatile ("rep stosl"::"D"(d),"a"(v),"c"(t))
+#define __memcpy32(d,s,t,l)  asm volatile ("rep movsl"::"D"(d),"S"(s),"c"(t))
+#define __memchr32(d,s,v,l)  asm volatile ("repnz scasl":"=D"(d), "=c"(l):"D"(s),"a"(v),"c"(l))
+
+#define _memset32(d,v,t)     __fix_str_dir(__memset32,d,v,t,0)
+#define _memcpy32(d,s,t)     __fix_str_dir(__memcpy32,d,s,t,0)
+#define _memchr32(d,s,v,l)   __fix_str_dir(__memchr32,d,s,v,l)
+
 /*
 ** Size is number of bytes
 */
