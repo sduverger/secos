@@ -25,11 +25,6 @@
 #define __replicate_byte_on_dword(b) __rep_8_32(b)
 
 #define __replicate_byte_on_long(b) __rep_8_32(b)
-#define __memset(d,v,t,l)   asm volatile ("rep stosl"::"D"(d),"a"(v),"c"(t))
-#define __memcpy(d,s,t,l)   asm volatile ("rep movsl"::"D"(d),"S"(s),"c"(t))
-
-#define _memset(d,v,t)      __fix_str_dir(__memset,d,v,t,0)
-#define _memcpy(d,s,t)      __fix_str_dir(__memcpy,d,s,t,0)
 
 #define __memset8(d,v,t,l)  asm volatile ("rep stosb"::"D"(d),"a"(v),"c"(t))
 #define __memcpy8(d,s,t,l)  asm volatile ("rep movsb"::"D"(d),"S"(s),"c"(t))
@@ -65,7 +60,7 @@ static inline void* memset(void *dst, uint8_t c, size_t size)
    if(cnt)
    {
       ulong_t lc = __replicate_byte_on_long(c);
-      _memset(dloc.linear, lc, cnt);
+      _memset32(dloc.linear, lc, cnt);
       dloc.linear += cnt*sizeof(ulong_t);
    }
 
@@ -90,7 +85,7 @@ static inline void* memcpy(void *dst, void *src, size_t size)
 
    if(cnt)
    {
-      _memcpy(dloc.linear, sloc.linear, cnt);
+      _memcpy32(dloc.linear, sloc.linear, cnt);
       dloc.linear += cnt*sizeof(ulong_t);
       sloc.linear += cnt*sizeof(ulong_t);
    }
