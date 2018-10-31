@@ -6,9 +6,11 @@
 #include <intr.h>
 #include <info.h>
 
-uint32_t __mbh__ mbh_magic = MBH_MAGIC;
-uint32_t __mbh__ mbh_flags = MBH_FLAGS;
-sint32_t __mbh__ mbh_chksm = -(MBH_MAGIC+MBH_FLAGS);
+volatile const uint32_t __mbh__ mbh[] = {
+   MBH_MAGIC,
+   MBH_FLAGS,
+   (uint32_t)-(MBH_MAGIC+MBH_FLAGS),
+};
 
 static info_t __info __attribute__ ((aligned(16)));
        info_t *info = &__info;
