@@ -28,12 +28,12 @@ Qemu ne supporte pas "complètement" la segmentation. Il est nécessaire d'utili
 Servez-vous des outils présents dans notre OS (get_gdtr(), seg_desc_t et gdt_reg_t)
 
 2. Configurez votre propre GDT contenant des descripteurs ring 0:
- . code, 32 bits RX, flat, indice 1
- . données, 32 bits RW, flat, indice 2
+ - code, 32 bits RX, flat, indice 1
+ - données, 32 bits RW, flat, indice 2
 
 Vous pouvez placer ces descripteurs où vous le souhaitez dans la GDT. Attention de bien respecter les restrictions matérielles :
- . la GDT doit avoir une adresse de base alignée sur 8 octets
- . le premier descripteur (indice 0) doit être NULL
+ - la GDT doit avoir une adresse de base alignée sur 8 octets
+ - le premier descripteur (indice 0) doit être NULL
 
 Chargez cette GDT, puis initialisez les registres de segments (cs/ss/ds/...) avec les bons sélecteurs afin qu'ils pointent vers vos nouveaux descripteurs.
 
