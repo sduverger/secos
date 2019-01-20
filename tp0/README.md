@@ -28,7 +28,7 @@ secos-a241db6-59e4545 (c) Airbus
 kernel mem [0x302010 - 0x303820]
 ```
 
-Si vous regardez le code "start.c", vous découvrirez l'affichage de ces informations à l'aide des symbols "__kernel_start__" et "__kernel_end__".
+Si vous regardez le code "start.c", vous découvrirez l'affichage de ces informations à l'aide des symbols "\_\_kernel_start\_\_" et "\_\_kernel_end\_\_".
 
 Vous pouvez modifier le fichier "tp0/tp.c" pour commencer le TP.
 
