@@ -1,10 +1,13 @@
+#TP0 -
+
 Le but du TP est de se familiariser avec le noyau secos.
 
 Le noyau est linké grâce au LD-script "utils/linker.lds" qui définit
 l'agencement mémoire du noyau lorsqu'il va être chargé par le
 bootloader GRUB.
 
-(tp0)$ readelf -l kernel.elf 
+```bash
+(tp0)$ readelf -l kernel.elf
 
 Elf file type is EXEC (Executable file)
 Entry point 0x302010
@@ -15,6 +18,7 @@ Program Headers:
   LOAD           0x000094 0x00300000 0x00300000 0x0000c 0x0000c RWE 0x4
   LOAD           0x0000a0 0x00300010 0x00300010 0x00000 0x02000 RW  0x10
   LOAD           0x0000b0 0x00302010 0x00302010 0x013f8 0x01810 RWE 0x20
+```
 
 Le fichier ELF nous indique que le noyau est chargé à l'adresse
 physique 0x300000.
@@ -22,9 +26,11 @@ physique 0x300000.
 Lors du démarrage, le noyau vous affiche sur le port série, la zone
 mémoire qu'il occupe:
 
+```bash
 (tp0)$ make qemu
 secos-a241db6-59e4545 (c) Airbus
 kernel mem [0x302010 - 0x303820]
+```
 
 Si vous regardez le code "start.c", vous découvrirez l'affichage de
 ces informations à l'aide des symbols "__kernel_start__" et
@@ -40,8 +46,8 @@ dans "include/info.h". Pour l'instant il ne contient que le champ
 sur le système. Vous trouverez sa définition dans "include/mbi.h" et
 "include/grub_mbi.h".
 
-Questions:
-----------
+
+## Questions
 
 1 - Pourquoi le noyau indique 0x302010 et pas 0x300000 comme adresse
 de début ? Indice: essayer de comprendre linker.lds, regardez
