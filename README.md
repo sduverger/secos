@@ -66,7 +66,7 @@ L'environnement de développement s'appuye sur Qemu. Le makefile lance qemu avec
 
 Qemu boot une VM équipée d'un processeur x86 32 bits et de 128MB de RAM. La VM démarre sur une disquette "grub.floppy" qui contient le bootloader "grub". Celui-ci est configuré pour charger le fichier "kernel.elf" depuis le disque dur "HDD0". Le fichier "kernel.elf" est notre noyau d'OS.
 
-Qemu nous permet d'émuler un disque dur directement depuis un## répertoire, sans avoir à créer une image virtuelle de disque. Ceci est## très pratique, car à chaque modification de notre noyau "kernel.elf",## nous n'aurons pas besoin de recréer cette image de disque. Qemu## prendra automatiquement la dernière version du fichier à chaque## lancement de VM.
+Qemu nous permet d'émuler un disque dur directement depuis un répertoire, sans avoir à créer une image virtuelle de disque. Ceci est très pratique, car à chaque modification de notre noyau "kernel.elf", nous n'aurons pas besoin de recréer cette image de disque. Qemu prendra automatiquement la dernière version du fichier à chaque lancement de VM.
 
 L'image ELF de votre noyau se trouve dans le répertoire de TP dans lequel vous travaillez.
 
