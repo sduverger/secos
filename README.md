@@ -19,7 +19,7 @@ Le cours vous donne l'occasion d'appliquer vos connaissances à l'aide de petits
 
 Chaque TP embarque ainsi un fichier "tp.c" dans lequel vous pouvez faire vos développements sans avoir à modifier l'environnement de compilation, ni les autres fichiers du noyau.
 
-Le code des composants essentiels du noyau se trouve dans "kernel".
+Le code des composants essentiels du noyau se trouve dans "kernel/".
 
 Le noyau est simpliste. Il boot en mode protégé en 32 bits grâce à Grub. A ce titre, il accède à la mémoire physique directement sans pagination. Le mode protégé a été partiellement initialisé par Grub, il faudra au fil des TPs, le configurer petit à petit: segmentation, interruptions, pagination, ...
 
@@ -28,11 +28,11 @@ Il propose des services de base:
  - memcpy, memset, ...
  - l'accès aux structures multiboot de Grub
  - les structures matérielles du mode protégé pour x86:
-   . GDT/IDT/LDT, descripteurs, sélecteurs
-   . tables de pages, PTE/PDE
-   . TSS
-   . registres de contrôle (CR)
-   . registres de flags
+   + GDT/IDT/LDT, descripteurs, sélecteurs
+   + tables de pages, PTE/PDE
+   + TSS
+   + registres de contrôle (CR)
+   + registres de flags
 
 Allez fouiller dans "kernel/include" pour y trouver les définitions. Les structures utilisent des bitfields permettant d'accéder facilement aux champs des structures matérielles sans avoir à faire de masques ou décallages. Si vous n'aimez pas les bitfields, vous avez toujours le loisir d'utiliser des masques en utilisant le champ ".raw" de ces structures qui vous donne accès à l'intégralité des données.
 
@@ -72,7 +72,7 @@ L'image ELF de votre noyau se trouve dans le répertoire de TP dans lequel vous 
 
 Par défaut, le port série de la VM est redirigé dans votre terminal (stdio). La VM ne dispose pas d'affichage graphique.
 
-Vous pouvez accéder au "monitor" de Qemu, grâce à la séquence <ctrl-a> puis <c> puis <enter>.
+Vous pouvez accéder au "monitor" de Qemu, grâce à la séquence `<ctrl-a>` puis `<c>` puis `<enter>`.
 
 Il vous affiche:
 
@@ -83,8 +83,8 @@ QEMU 2.xx.yy monitor - type 'help' for more information
 
 Vous aurez accès à de nombreuses commandes internes de Qemu qui permettent d'inspecter la machine virtuelle.
 
-Pour rebasculer dans l'affichage des logs envoyées sur le port série, tapez de nouveau la séquence "<ctrl-a> <c> <enter>". Le monitor est multiplexé avec le port série sur stdio.
+Pour rebasculer dans l'affichage des logs envoyées sur le port série, tapez de nouveau la séquence `<ctrl-a> <c> <enter>`. Le monitor est multiplexé avec le port série sur stdio.
 
 Si vous voulez quitter Qemu:
- - soit directement <ctrl-a> <x>
- - soit depuis le mode monitor, tapez "q".
+ - soit directement `<ctrl-a> <x>`
+ - soit depuis le mode monitor, tapez `q`.

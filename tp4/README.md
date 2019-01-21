@@ -46,45 +46,43 @@ d'adressage.
 
 ### Question 1
 
-Affichez la valeur courante de CR3.
+**Affichez la valeur courante de CR3.**
 
 ### Question 2
 
-Allouez un PGD (pde32_t*) à l'adresse physique 0x600000 et mettez à jour CR3 avec cette adresse.
+**Allouez un PGD (pde32_t*) à l'adresse physique 0x600000 et mettez à jour CR3 avec cette adresse.**
 
 ### Question 3
 
-Activez la pagination (cr0). Que se passe-t-il ? Pouquoi ?
+**Activez la pagination (cr0). Que se passe-t-il ? Pouquoi ?**
 
 ### Question 4
 
-Comme pour le PGD, allouez une PTB (pte32_t*) à l'adresse 0x601000.
+**Comme pour le PGD, allouez une PTB (pte32_t*) à l'adresse 0x601000.
 
-Initialisez la mémoire virtuelle en "identity mapping": les adresses
-virtuelles doivent être les mêmes que les adresses physiques. Pour
-cela il va falloir:
+Initialisez la mémoire virtuelle en "identity mapping": les adresses virtuelles doivent être les mêmes que les adresses physiques. Pour cela il va falloir:
 
- - bien étudier les plages d'adresses physiques occupées par le noyau
+ - Bien étudier les plages d'adresses physiques occupées par le noyau
    (readelf -e kernel.elf, regardez les program headers).
- - préparer au moins une entrée dans le PGD pour la PTB.
- - préparer plusieurs entrées dans la PTB.
+ - Préparer au moins une entrée dans le PGD pour la PTB.
+ - Préparer plusieurs entrées dans la PTB.**
 
 ### Question 5
 
-Une fois la pagination activée, essayez d'afficher le contenu d'une entrée de votre PTB. Que se passe-t-il ?
+**Une fois la pagination activée, essayez d'afficher le contenu d'une entrée de votre PTB. Que se passe-t-il ?**
 
 ### Question 6
 
-Trouvez la solution pour être capable de modifier les entrées de votre PTB une fois la pagination activée.
+**Trouvez la solution pour être capable de modifier les entrées de votre PTB une fois la pagination activée.**
 
 ### Question 7
 
-Faites en sorte que l'adresse virtuelle 0xc0000000 vous permette de modifier votre PGD.
+**Faites en sorte que l'adresse virtuelle 0xc0000000 vous permette de modifier votre PGD.**
 
 ### Question 8
 
-Faites en sorte que les adresses virtuelles 0x700000 et 0x7ff000 mappent l'adresse physique 0x2000. Affichez la chaîne de caractères à ces adresses virtuelles.
+**Faites en sorte que les adresses virtuelles 0x700000 et 0x7ff000 mappent l'adresse physique 0x2000. Affichez la chaîne de caractères à ces adresses virtuelles.**
 
 ### Question 9
 
-Effacez la première entrée du PGD. Que constatez-vous ? Expliquez pourquoi ?
+**Effacez la première entrée du PGD. Que constatez-vous ? Expliquez pourquoi ?**

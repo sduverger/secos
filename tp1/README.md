@@ -43,7 +43,7 @@ Chargez cette GDT, puis initialisez les registres de segments (cs/ss/ds/...) ave
 
 ### Question 3
 
-**Essayez d'exécuter le code suivant:**
+**Essayez d'exécuter le code suivant :**
 
 ```c
   #include <string.h>
@@ -54,18 +54,18 @@ Chargez cette GDT, puis initialisez les registres de segments (cs/ss/ds/...) ave
   memset(src, 0xff, 64);
 ```
 
-Configurez un nouveau descripteur de données à l'index de votre choix:
- . data, ring 0
- . 32 bits RW
- . base 0x600000
- . limite 32 octets
+**Configurez un nouveau descripteur de données à l'index de votre choix :
+ - data, ring 0
+ - 32 bits RW
+ - base 0x600000
+ - limite 32 octets**
 
-Chargez le registre de segment "es" de manière à adresser votre nouveau descripteur de données. Puis exécutez le code suivant:
+**Chargez le registre de segment "es" de manière à adresser votre nouveau descripteur de données. Puis exécutez le code suivant :**
 
 ```c
   _memcpy8(dst, src, 32);
 ```
 
-Que se passe-t-il ? Pourquoi n'y a-t-il pas de faute mémoire alors que le pointeur "dst" est NULL ?
+**Que se passe-t-il ? Pourquoi n'y a-t-il pas de faute mémoire alors que le pointeur "dst" est NULL ?**
 
-Effectuez à présent une copie de 64 octets ? Que se passe-t-il ?
+**Effectuez à présent une copie de 64 octets ? Que se passe-t-il ?**

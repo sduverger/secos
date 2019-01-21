@@ -28,7 +28,7 @@ secos-a241db6-59e4545 (c) Airbus
 kernel mem [0x302010 - 0x303820]
 ```
 
-Si vous regardez le code "start.c", vous découvrirez l'affichage de ces informations à l'aide des symbols "\_\_kernel_start\_\_" et "\_\_kernel_end\_\_".
+Si vous regardez le code "start.c", vous découvrirez l'affichage de ces informations à l'aide des symbols `\_\_kernel_start\_\_` et `\_\_kernel_end\_\_`.
 
 Vous pouvez modifier le fichier "tp0/tp.c" pour commencer le TP.
 
@@ -38,13 +38,17 @@ Par défaut, les fichiers de TP permettent d'accéder à un objet global pré-in
 ## Questions
 
 ### Question 1
-**Pourquoi le noyau indique 0x302010 et pas 0x300000 comme adresse de début ? Indice: essayer de comprendre linker.lds, regardez également le code de "entry.s"**
+
+**Pourquoi le noyau indique `0x302010` et pas `0x300000` comme adresse de début ? Indice: essayer de comprendre linker.lds, regardez également le code de "entry.s"**
 
 ### Question 2
-**A l'aide de la structure "multiboot_info", vous devez afficher la cartographie mémoire de la VM. Pour cela, utilisez les champs "mmap_addr" et "mmap_length". Aidez-vous d'internet pour trouver des informations sur le standard multiboot. Le champ "mmap_addr" contient l'adresse du premier objet de type "multiboot_memory_map" qui vous permettra d'afficher des informations sur la mémoire.**
+
+**A l'aide de la structure "multiboot_info", vous devez afficher la cartographie mémoire de la VM. Pour cela, utilisez les champs `mmap_addr` et `mmap_length`. Aidez-vous d'internet pour trouver des informations sur le standard multiboot. Le champ `mmap_addr` contient l'adresse du premier objet de type `multiboot_memory_map` qui vous permettra d'afficher des informations sur la mémoire.**
 
 ### Question 3
+
 **Vous allez découvrir différentes zones de mémoire physique, certaines étant réservées, d'autres libres. Déclarez un pointeur d'entier par exemple et initialisez le avec une des adresses que vous avez trouvée. Essayez de lire/écrire la mémoire à cette adresse. Que se passe-t-il ? Avez-vous un "segmentation fault" ? Pourquoi ?**
 
 ### Question 4
+
 **Essayez de lire/écrire en dehors de la RAM disponible (128MB). Que se passe-t-il ?**
