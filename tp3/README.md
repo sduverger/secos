@@ -27,6 +27,8 @@ Je vous recommande de lire un peu de documentation sur l'assembleur en ligne GCC
  - **Code, 32 bits RX, ring 3, flat**
  - **Data, 32 bits RW, ring 3, flat**
 
+---
+
 ### Question 2
 
 **Écrivez la fonction suivante:**
@@ -38,17 +40,25 @@ void userland()
 }
 ```
 
+---
+
 ### Question 3
 
 **Chargez progressivement les registres de segments avec des sélecteurs qui pointent vers les descripteurs ring 3.**
+
+---
 
 ### Question 3.1
 
 **Que se passe-t-il lors du chargement de DS/ES/FS/GS ?**
 
+---
+
 ### Question 3.2
 
 **Que se passe-t-il lors du chargement de SS ?**
+
+---
 
 ### Question 3.3
 
@@ -56,9 +66,13 @@ void userland()
 
 **Quelles conclusions en tirez-vous ? Comment un noyau fait-il pour démarrer une tâche en ring 3 ?**
 
+---
+
 ### Question 3.4
 
 **Essayez de faire s'exécuter la fonction "userland()" en ring3 avec une autre méthode (indice "iret"). Analysez la faute produite suite à son exécution. Est-ce normal ?**
+
+---
 
 ### Question Bonus
 
