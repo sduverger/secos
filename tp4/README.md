@@ -33,11 +33,11 @@ void fonction()
 }
 ```
 
-Dans cet exemple, tab_c est un pointeur sur entiers (ou une table d'entiers), pointant vers la zone mémoire à l'adresse 0x1234. La variable `tab_c` elle-même se trouve dans la pile de `fonction()`. Mais à l'inverse d'un tableau, les éléments se trouvent à partir de `0x1234`. Peu impote que la variable tab_c soit une variable locale, ce qui compte c'est la zone mémoire adressée par le pointeur.
+Dans cet exemple, tab_c est un pointeur sur entiers (ou une table d'entiers), pointant vers la zone mémoire à l'adresse `0x1234`. La variable `tab_c` elle-même se trouve dans la pile de `fonction()`. Mais à l'inverse d'un tableau, les éléments se trouvent à partir de `0x1234`. Peu impote que la variable tab_c soit une variable locale, ce qui compte c'est la zone mémoire adressée par le pointeur.
 
 Le compilateur ne sait pas la taille de la zone mémoire adressée et potentiellement vous pouvez accéder à toute la mémoire à partir de cette adresse:
 
-Dans une application classique, déclarer un tel pointeur provoquerait à coup sur un crash de l'application car l'adresse 0x1234 n'est jamais disponible pour une application (ex. sous Linux). Dans notre noyau cela ne pause pas de problème, nous utilisons la mémoire "physique" pour l'instant et nous n'avons pas de notion de tâche avec des espaces
+Dans une application classique, déclarer un tel pointeur provoquerait à coup sur un crash de l'application car l'adresse `0x1234` n'est jamais disponible pour une application (ex. sous Linux). Dans notre noyau cela ne pause pas de problème, nous utilisons la mémoire "physique" pour l'instant et nous n'avons pas de notion de tâche avec des espaces
 d'adressage.
 
 
@@ -49,7 +49,7 @@ d'adressage.
 
 ### Question 2
 
-**Allouez un PGD (pde32_t*) à l'adresse physique 0x600000 et mettez à jour CR3 avec cette adresse.**
+**Allouez un PGD (pde32_t\*) à l'adresse physique `0x600000` et mettez à jour CR3 avec cette adresse.**
 
 ### Question 3
 
@@ -57,12 +57,11 @@ d'adressage.
 
 ### Question 4
 
-**Comme pour le PGD, allouez une PTB (pte32_t*) à l'adresse `0x601000`.**
+**Comme pour le PGD, allouez une PTB (pte32_t\*) à l'adresse `0x601000`.**
 
 **Initialisez la mémoire virtuelle en "identity mapping": les adresses virtuelles doivent être les mêmes que les adresses physiques. Pour cela il va falloir:**
 
- - **Bien étudier les plages d'adresses physiques occupées par le noyau**
-   (readelf -e kernel.elf, regardez les program headers).**
+ - **Bien étudier les plages d'adresses physiques occupées par le noyau (readelf -e kernel.elf, regardez les program headers).**
  - **Préparer au moins une entrée dans le PGD pour la PTB.**
  - **Préparer plusieurs entrées dans la PTB.**
 
