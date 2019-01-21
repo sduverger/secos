@@ -24,8 +24,8 @@ Le code des composants essentiels du noyau se trouve dans "kernel/".
 Le noyau est simpliste. Il boot en mode protégé en 32 bits grâce à Grub. A ce titre, il accède à la mémoire physique directement sans pagination. Le mode protégé a été partiellement initialisé par Grub, il faudra au fil des TPs, le configurer petit à petit: segmentation, interruptions, pagination, ...
 
 Il propose des services de base:
- - printf/debug sur le port série
- - memcpy, memset, ...
+ - `printf` / `debug` sur le port série
+ - `memcpy`, `memset`, ...
  - L'accès aux structures multiboot de Grub
  - Les structures matérielles du mode protégé pour x86:
    + GDT/IDT/LDT, descripteurs, sélecteurs
