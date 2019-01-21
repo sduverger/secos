@@ -26,11 +26,11 @@ Permettre un ordonnancement préemptif de 2 tâches (T1 et T2) en ring 3:
  - La tâche 2 affiche le compteur depuis la zone de mémoire partagée
  - L'affichage dans la tâche 2 s'effectuera à l'aide d'un appel système:
    + L'interface utilisateur:
-     - A le prototype: `void sys_counter(uint32_t \*counter);`
+     - A le prototype: `void sys_counter(uint32_t *counter);`
      - Notez bien que l'argument est une adresse virtuelle ring 3
    + L'interface noyau:
      - Est installée à l'interruption `0x80`
-     - Reçoit un pointeur utilisateur de type `uint32_t\*`
+     - Reçoit un pointeur utilisateur de type `uint32_t*`
      - S'occupe de l'affichage du compteur (via `debug()`)
  - Le gestionnaire de l'interruption 32 (irq0 = horloge) doit vous permettre à chaque interruption de passer de la tâche 1 à la tâche 2 et inversement. Il doit également savoir détecter s'il a interrompu le noyau ou une tâche utilisateur.
  - Une fois la mémoire, les interruptions et les tâches initialisées, le noyau doit activer les interruptions matérielles et effectuer une boucle infinie.
