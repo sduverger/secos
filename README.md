@@ -26,8 +26,8 @@ Le noyau est simpliste. Il boot en mode protégé en 32 bits grâce à Grub. A c
 Il propose des services de base:
  - printf/debug sur le port série
  - memcpy, memset, ...
- - l'accès aux structures multiboot de Grub
- - les structures matérielles du mode protégé pour x86:
+ - L'accès aux structures multiboot de Grub
+ - Les structures matérielles du mode protégé pour x86:
    + GDT/IDT/LDT, descripteurs, sélecteurs
    + Tables de pages, PTE/PDE
    + TSS
