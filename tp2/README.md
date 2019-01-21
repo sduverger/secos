@@ -25,29 +25,43 @@ La valeur d'isr correspond à des petites fonctions que l'on peut voir comme des
 
 Chaque trampoline, saute dans "idt_common" qui appelle le gestionnaire d'interruptions de haut niveau de notre noyau "intr_hdlr".
 
+---
+
 ### Question 2
 
 **Activez les interruptions dans une boucle infinie. Que constatez-vous ?**
+
+---
 
 ### Question 3
 
 **Gestion furtive des breakpoints #BP (Breakpoint Exception). Le but est de ne pas modifier "intr_hdlr" mais d'intercepter les #BP en amont depuis "tp.c".**
 
+---
+
 ### Question 3.1
 
 **Localisez l'IDT et affichez son adresse de chargement.**
+
+---
 
 ### Question 3.2
 
 **Écrivez une fonction "bp_handler" affichant un message de debug à l'écran.**
 
+---
+
 ### Question 3.3
 
 **Écrivez une fonction "bp_trigger" déclenchant un breakpoint grâce à l'instruction "int3".**
 
+---
+
 ### Question 3.4
 
 **Modifiez le descripteur d'interruption (int_desc_t) de #BP afin d'appeler "bp_handler()" la place du trampoline déjà installé. Faites un appel explicite à "bp_trigger()" dans "tp()". Que constatez-vous ?**
+
+---
 
 ### Question 3.5
 
@@ -56,9 +70,13 @@ Chaque trampoline, saute dans "idt_common" qui appelle le gestionnaire d'interru
  - **Que doit faire exactement la fonction bp_handler() lorsqu'elle se termine ?**
  - **N'oubliez pas qu'elle n'est pas une simple fonction mais un gestionnaire d'interruption.**
 
+---
+
 ### Question 3.6
 
 **Affichez l'EIP sauvegardé dans la pile au moment où #BP est générée. A quelle adresse cela correspond-il ?**
+
+---
 
 ### Question 3.7
 
