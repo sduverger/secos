@@ -62,7 +62,7 @@ void userland()
 
 ### Question 3.3
 
-**Essayez d'effectuer un "far jump" vers la fonction "userland()". Pour cela il faut charger dans "CS" le sélecteur de code ring 3 et dans EIP l'adresse de la fonction "userland()". Vous pouvez utiliser le type "fptr32_t" et la fonction "farjump()" de notre noyau.**
+**Essayez d'effectuer un "far jump" vers la fonction `userland()`. Pour cela il faut charger dans `CS` le sélecteur de code ring 3 et dans EIP l'adresse de la fonction `userland()`. Vous pouvez utiliser le type `fptr32_t` et la fonction `farjump()` de notre noyau.**
 
 **Quelles conclusions en tirez-vous ? Comment un noyau fait-il pour démarrer une tâche en ring 3 ?**
 
@@ -70,7 +70,7 @@ void userland()
 
 ### Question 3.4
 
-**Essayez de faire s'exécuter la fonction "userland()" en ring3 avec une autre méthode (indice "iret"). Analysez la faute produite suite à son exécution. Est-ce normal ?**
+**Essayez de faire s'exécuter la fonction `userland()` en ring3 avec une autre méthode (indice `iret`). Analysez la faute produite suite à son exécution. Est-ce normal ?**
 
 ---
 
