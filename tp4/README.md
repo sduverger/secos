@@ -45,29 +45,29 @@ d'adressage.
 
 ### Question 1
 
-**Affichez la valeur courante de CR3.**
+**Affichez la valeur courante de `CR3`.**
 
 ---
 
 ### Question 2
 
-**Allouez un PGD (pde32_t\*) à l'adresse physique `0x600000` et mettez à jour CR3 avec cette adresse.**
+**Allouez un PGD `(pde32_t*)` à l'adresse physique `0x600000` et mettez à jour `CR3` avec cette adresse.**
 
 ---
 
 ### Question 3
 
-**Activez la pagination (cr0). Que se passe-t-il ? Pouquoi ?**
+**Activez la pagination (`CR0`). Que se passe-t-il ? Pouquoi ?**
 
 ---
 
 ### Question 4
 
-**Comme pour le PGD, allouez une PTB (pte32_t\*) à l'adresse `0x601000`.**
+**Comme pour le PGD, allouez une PTB `(pte32_t*)` à l'adresse `0x601000`.**
 
 **Initialisez la mémoire virtuelle en "identity mapping": les adresses virtuelles doivent être les mêmes que les adresses physiques. Pour cela il va falloir:**
 
- - **Bien étudier les plages d'adresses physiques occupées par le noyau (readelf -e kernel.elf, regardez les program headers).**
+ - **Bien étudier les plages d'adresses physiques occupées par le noyau (`readelf -e kernel.elf`, regardez les program headers).**
  - **Préparer au moins une entrée dans le PGD pour la PTB.**
  - **Préparer plusieurs entrées dans la PTB.**
 
