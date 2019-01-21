@@ -15,7 +15,9 @@ Elle nous a permis d'intercepter les #GP du TP1.
 
 ## Questions
 
-1 - Lisez "intr.c" et "idt.s" afin de bien comprendre l'implémentation des interruptions dans notre noyau.
+### Question 1
+
+Lisez "intr.c" et "idt.s" afin de bien comprendre l'implémentation des interruptions dans notre noyau.
 
 L'IDT contient des descripteurs d'interruptions "int_desc" qui sont initialisés avec leur propre handler d'interruption "isr".
 
@@ -23,25 +25,43 @@ La valeur d'isr correspond à des petites fonctions que l'on peut voir comme des
 
 Chaque trampoline, saute dans "idt_common" qui appelle le gestionnaire d'interruptions de haut niveau de notre noyau "intr_hdlr".
 
-2. Activez les interruptions dans une boucle infinie. Que constatez-vous ?
+### Question 2
 
-3. Gestion furtive des breakpoints #BP (Breakpoint Exception). Le but est de ne pas modifier "intr_hdlr" mais d'intercepter les #BP en amont depuis "tp.c".
+Activez les interruptions dans une boucle infinie. Que constatez-vous ?
 
-3.1. Localisez l'IDT et affichez son adresse de chargement.
+### Question 3
 
-3.2. Ecrivez une fonction "bp_handler" affichant un message de debug à l'écran.
+Gestion furtive des breakpoints #BP (Breakpoint Exception). Le but est de ne pas modifier "intr_hdlr" mais d'intercepter les #BP en amont depuis "tp.c".
 
-3.3. Ecrivez une fonction "bp_trigger" déclenchant un breakpoint grâce à l'instruction "int3".
+### Question 3.1
 
-3.4. Modifiez le descripteur d'interruption (int_desc_t) de #BP afin d'appeler "bp_handler()" la place du trampoline déjà installé. Faites un appel explicite à "bp_trigger()" dans "tp()". Que constatez-vous ?
+Localisez l'IDT et affichez son adresse de chargement.
 
-3.5. Modifiez la fonction "bp_handler"() afin que le noyau ne génère plus de faute et rende la main à la fonction "tp()":
+### Question 3.2
+
+Ecrivez une fonction "bp_handler" affichant un message de debug à l'écran.
+
+### Question 3.3
+
+Ecrivez une fonction "bp_trigger" déclenchant un breakpoint grâce à l'instruction "int3".
+
+### Question 3.4
+
+Modifiez le descripteur d'interruption (int_desc_t) de #BP afin d'appeler "bp_handler()" la place du trampoline déjà installé. Faites un appel explicite à "bp_trigger()" dans "tp()". Que constatez-vous ?
+
+### Question 3.5
+
+Modifiez la fonction "bp_handler"() afin que le noyau ne génère plus de faute et rende la main à la fonction "tp()":
  - pensez à la pile au moment de l'arrivée de l'interruption
  - que doit faire exactement la fonction bp_handler() lorsqu'elle se termine ?
  - n'oubliez pas qu'elle n'est pas une simple fonction mais un gestionnaire d'interruption.
 
-3.6. Affichez l'EIP sauvegardé dans la pile au moment où #BP est générée. A quelle adresse cela correspond-il ?
+### Question 3.6
 
-3.7. Affichez un message de debug dans la fonction "bp_trigger()" après le déclenchement du breakpoint. Que constatez-vous ? Essayez de corriger le problème afin que le message s'affiche correctement.
+Affichez l'EIP sauvegardé dans la pile au moment où #BP est générée. A quelle adresse cela correspond-il ?
+
+### Question 3.7
+
+Affichez un message de debug dans la fonction "bp_trigger()" après le déclenchement du breakpoint. Que constatez-vous ? Essayez de corriger le problème afin que le message s'affiche correctement.
 
 Quelles conclusions tirez-vous du développement en C d'un gestionnaire d'interruption ? Pourquoi l'assembleur semble-t-il plus approprié ?

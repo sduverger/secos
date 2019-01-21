@@ -44,13 +44,21 @@ d'adressage.
 
 ## Questions
 
-1. Affichez la valeur courante de CR3.
+### Question 1
 
-2. Allouez un PGD (pde32_t*) à l'adresse physique 0x600000 et mettez à jour CR3 avec cette adresse.
+Affichez la valeur courante de CR3.
 
-3. Activez la pagination (cr0). Que se passe-t-il ? Pouquoi ?
+### Question 2
 
-4. Comme pour le PGD, allouez une PTB (pte32_t*) à l'adresse 0x601000.
+Allouez un PGD (pde32_t*) à l'adresse physique 0x600000 et mettez à jour CR3 avec cette adresse.
+
+### Question 3
+
+Activez la pagination (cr0). Que se passe-t-il ? Pouquoi ?
+
+### Question 4
+
+Comme pour le PGD, allouez une PTB (pte32_t*) à l'adresse 0x601000.
 
 Initialisez la mémoire virtuelle en "identity mapping": les adresses
 virtuelles doivent être les mêmes que les adresses physiques. Pour
@@ -61,13 +69,22 @@ cela il va falloir:
  - préparer au moins une entrée dans le PGD pour la PTB.
  - préparer plusieurs entrées dans la PTB.
 
-5. Une fois la pagination activée, essayez d'afficher le contenu
-d'une entrée de votre PTB. Que se passe-t-il ?
+### Question 5
 
-6. Trouvez la solution pour être capable de modifier les entrées de votre PTB une fois la pagination activée.
+Une fois la pagination activée, essayez d'afficher le contenu d'une entrée de votre PTB. Que se passe-t-il ?
 
-7. Faites en sorte que l'adresse virtuelle 0xc0000000 vous permette de modifier votre PGD.
+### Question 6
 
-8. Faites en sorte que les adresses virtuelles 0x700000 et 0x7ff000 mappent l'adresse physique 0x2000. Affichez la chaîne de caractères à ces adresses virtuelles.
+Trouvez la solution pour être capable de modifier les entrées de votre PTB une fois la pagination activée.
 
-9. Effacez la première entrée du PGD. Que constatez-vous ? Expliquez pourquoi ?
+### Question 7
+
+Faites en sorte que l'adresse virtuelle 0xc0000000 vous permette de modifier votre PGD.
+
+### Question 8
+
+Faites en sorte que les adresses virtuelles 0x700000 et 0x7ff000 mappent l'adresse physique 0x2000. Affichez la chaîne de caractères à ces adresses virtuelles.
+
+### Question 9
+
+Effacez la première entrée du PGD. Que constatez-vous ? Expliquez pourquoi ?

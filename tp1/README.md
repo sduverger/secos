@@ -23,11 +23,13 @@ Qemu ne supporte pas "complètement" la segmentation. Il est nécessaire d'utili
 
 ## Questions
 
-1. Grub a démarré notre noyau en mode protégé. Il a donc configuré une GDT avant d'exécuter notre point d'entrée. Affichez le contenu de cette GDT. Que constatez-vous ?
+### Question 1
+Grub a démarré notre noyau en mode protégé. Il a donc configuré une GDT avant d'exécuter notre point d'entrée. Affichez le contenu de cette GDT. Que constatez-vous ?
 
 Servez-vous des outils présents dans notre OS (get_gdtr(), seg_desc_t et gdt_reg_t)
 
-2. Configurez votre propre GDT contenant des descripteurs ring 0:
+### Question 2
+Configurez votre propre GDT contenant des descripteurs ring 0:
  - code, 32 bits RX, flat, indice 1
  - données, 32 bits RW, flat, indice 2
 
@@ -37,7 +39,9 @@ Vous pouvez placer ces descripteurs où vous le souhaitez dans la GDT. Attention
 
 Chargez cette GDT, puis initialisez les registres de segments (cs/ss/ds/...) avec les bons sélecteurs afin qu'ils pointent vers vos nouveaux descripteurs.
 
-3. Essayez d'exécuter le code suivant:
+### Question 3
+
+Essayez d'exécuter le code suivant:
 
 ```c
   #include <string.h>
