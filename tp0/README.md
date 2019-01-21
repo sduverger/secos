@@ -18,7 +18,7 @@ Program Headers:
   LOAD           0x0000b0 0x00302010 0x00302010 0x013f8 0x01810 RWE 0x20
 ```
 
-Le fichier ELF nous indique que le noyau est chargé à l'adresse physique 0x300000.
+Le fichier ELF nous indique que le noyau est chargé à l'adresse physique `0x300000`.
 
 Lors du démarrage, le noyau vous affiche sur le port série, la zone mémoire qu'il occupe:
 
@@ -28,11 +28,11 @@ secos-a241db6-59e4545 (c) Airbus
 kernel mem [0x302010 - 0x303820]
 ```
 
-Si vous regardez le code "start.c", vous découvrirez l'affichage de ces informations à l'aide des symbols `\_\_kernel_start\_\_` et `\_\_kernel_end\_\_`.
+Si vous regardez le code "start.c", vous découvrirez l'affichage de ces informations à l'aide des symbols `__kernel_start__` et `__kernel_end__`.
 
 Vous pouvez modifier le fichier "tp0/tp.c" pour commencer le TP.
 
-Par défaut, les fichiers de TP permettent d'accéder à un objet global pré-initialisé "info". C'est un pointeur dont la structure est définie dans "include/info.h". Pour l'instant il ne contient que le champ "mbi" provenant de Grub. Ce champ donne accès à la structure "multiboot_info" (version 1) qui contient de nombreuses informations sur le système. Vous trouverez sa définition dans "include/mbi.h" et "include/grub_mbi.h".
+Par défaut, les fichiers de TP permettent d'accéder à un objet global pré-initialisé `info`. C'est un pointeur dont la structure est définie dans "include/info.h". Pour l'instant il ne contient que le champ `mbi` provenant de Grub. Ce champ donne accès à la structure `multiboot_info` (version 1) qui contient de nombreuses informations sur le système. Vous trouverez sa définition dans "include/mbi.h" et "include/grub_mbi.h".
 
 
 ## Questions
