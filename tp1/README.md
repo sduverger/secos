@@ -32,12 +32,12 @@ Servez-vous des outils présents dans notre OS (get_gdtr(), seg_desc_t et gdt_re
 ### Question 2
 
 Configurez votre propre GDT contenant des descripteurs ring 0:
- - code, 32 bits RX, flat, indice 1
- - données, 32 bits RW, flat, indice 2
+ - Code, 32 bits RX, flat, indice 1
+ - Données, 32 bits RW, flat, indice 2
 
 Vous pouvez placer ces descripteurs où vous le souhaitez dans la GDT. Attention de bien respecter les restrictions matérielles :
- - la GDT doit avoir une adresse de base alignée sur 8 octets
- - le premier descripteur (indice 0) doit être NULL
+ - La GDT doit avoir une adresse de base alignée sur 8 octets
+ - Le premier descripteur (indice 0) doit être NULL
 
 Chargez cette GDT, puis initialisez les registres de segments (cs/ss/ds/...) avec les bons sélecteurs afin qu'ils pointent vers vos nouveaux descripteurs.
 
@@ -54,11 +54,11 @@ Chargez cette GDT, puis initialisez les registres de segments (cs/ss/ds/...) ave
   memset(src, 0xff, 64);
 ```
 
-**Configurez un nouveau descripteur de données à l'index de votre choix :
- - data, ring 0
- - 32 bits RW
- - base 0x600000
- - limite 32 octets**
+**Configurez un nouveau descripteur de données à l'index de votre choix :**
+ - **data, ring 0**
+ - **32 bits RW**
+ - **base 0x600000**
+ - **limite 32 octets**
 
 **Chargez le registre de segment "es" de manière à adresser votre nouveau descripteur de données. Puis exécutez le code suivant :**
 
