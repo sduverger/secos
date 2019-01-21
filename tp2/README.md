@@ -17,7 +17,7 @@ Elle nous a permis d'intercepter les #GP du TP1.
 
 ### Question 1
 
-Lisez "intr.c" et "idt.s" afin de bien comprendre l'implémentation des interruptions dans notre noyau.
+**Lisez "intr.c" et "idt.s" afin de bien comprendre l'implémentation des interruptions dans notre noyau.**
 
 L'IDT contient des descripteurs d'interruptions "int_desc" qui sont initialisés avec leur propre handler d'interruption "isr".
 
@@ -39,11 +39,11 @@ Chaque trampoline, saute dans "idt_common" qui appelle le gestionnaire d'interru
 
 ### Question 3.2
 
-**Ecrivez une fonction "bp_handler" affichant un message de debug à l'écran.**
+**Écrivez une fonction "bp_handler" affichant un message de debug à l'écran.**
 
 ### Question 3.3
 
-**Ecrivez une fonction "bp_trigger" déclenchant un breakpoint grâce à l'instruction "int3".**
+**Écrivez une fonction "bp_trigger" déclenchant un breakpoint grâce à l'instruction "int3".**
 
 ### Question 3.4
 
@@ -51,10 +51,10 @@ Chaque trampoline, saute dans "idt_common" qui appelle le gestionnaire d'interru
 
 ### Question 3.5
 
-**Modifiez la fonction "bp_handler"() afin que le noyau ne génère plus de faute et rende la main à la fonction "tp()":
- - pensez à la pile au moment de l'arrivée de l'interruption
- - que doit faire exactement la fonction bp_handler() lorsqu'elle se termine ?
- - n'oubliez pas qu'elle n'est pas une simple fonction mais un gestionnaire d'interruption.**
+**Modifiez la fonction "bp_handler"() afin que le noyau ne génère plus de faute et rende la main à la fonction "tp()":**
+ - **Pensez à la pile au moment de l'arrivée de l'interruption**
+ - **Que doit faire exactement la fonction bp_handler() lorsqu'elle se termine ?**
+ - **N'oubliez pas qu'elle n'est pas une simple fonction mais un gestionnaire d'interruption.**
 
 ### Question 3.6
 
@@ -62,6 +62,6 @@ Chaque trampoline, saute dans "idt_common" qui appelle le gestionnaire d'interru
 
 ### Question 3.7
 
-**Affichez un message de debug dans la fonction "bp_trigger()" après le déclenchement du breakpoint. Que constatez-vous ? Essayez de corriger le problème afin que le message s'affiche correctement.
+**Affichez un message de debug dans la fonction "bp_trigger()" après le déclenchement du breakpoint. Que constatez-vous ? Essayez de corriger le problème afin que le message s'affiche correctement.**
 
-Quelles conclusions tirez-vous du développement en C d'un gestionnaire d'interruption ? Pourquoi l'assembleur semble-t-il plus approprié ?**
+**Quelles conclusions tirez-vous du développement en C d'un gestionnaire d'interruption ? Pourquoi l'assembleur semble-t-il plus approprié ?**
