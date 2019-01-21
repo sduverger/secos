@@ -4,9 +4,11 @@ Le but du TP est de bien comprendre la segmentation.
 
 Vous pouvez directement modifier "tp.c".
 
-Allez lire le fichier "kernel/include/segmem.h". Vous trouverez plein d'informations, de structures et de macros utiles pour la résolution du TP.
+Allez lire le fichier "kernel/include/segmem.h". Vous y trouverez plein d'informations, de structures et de macros utiles pour la résolution du TP.
 
-Modifiez au préalable le fichier utils/config.mk à la ligne:
+:warning: **QEMU ne supporte pas "complètement" la segmentation.**
+
+Il est nécessaire d'utiliser KVM à la place. Vous devez donc modifier au préalable le fichier utils/config.mk à la ligne:
 
 ```bash
  QEMU := $(shell which qemu-system-x86_64)
@@ -17,8 +19,6 @@ par
 ```bash
  QEMU := $(shell which kvm)
 ```
-
-:warning: Qemu ne supporte pas "complètement" la segmentation. Il est nécessaire d'utiliser KVM à la place.
 
 
 ## Questions
@@ -70,6 +70,6 @@ par
   _memcpy8(dst, src, 32);
 ```
 
-**Que se passe-t-il ? Pourquoi n'y a-t-il pas de faute mémoire alors que le pointeur "dst" est NULL ?**
+**Que se passe-t-il ? Pourquoi n'y a-t-il pas de faute mémoire alors que le pointeur `dst` est NULL ?**
 
 **Effectuez à présent une copie de 64 octets. Que se passe-t-il ?**
