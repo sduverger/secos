@@ -20,12 +20,11 @@ void fonction()
 }
 ```
 
-Dans cet exemple, tab_a est une variable globale non initialisée. Le compilateur et plus précisément le linker la placera dans la section ".bss". Le tableau aura une place de 10 entiers une fois le programme
-chargé en mémoire.
+Dans cet exemple, `tab_a` est une variable globale non initialisée. Le compilateur et plus précisément le linker la placera dans la section ".bss". Le tableau aura une place de 10 entiers une fois le programme chargé en mémoire.
 
-Le tableau tab_b, est une variable locale de fonction(). Le compilateur génère les instructions qui permettent d'allouer sa mémoire au moment de l'appel à fonction(), en déplaçant le pointeur de pile pour laisser de la place "localement", durant le temps de l'exécution de la fonction, aux 10 éléments de tab_b.
+Le tableau `tab_b`, est une variable locale de `fonction()`. Le compilateur génère les instructions qui permettent d'allouer sa mémoire au moment de l'appel à `fonction()`, en déplaçant le pointeur de pile pour laisser de la place "localement", durant le temps de l'exécution de la fonction, aux 10 éléments de `tab_b`.
 
-Dans le cas des pointeurs, nous pouvons les utiliser comme des tableaux pour adresser chaque élément, mais nous choisissons l'adresse à laquelle se trouvent les éléments. Dans vos programmes utilisateurs, vous faisiez généralement des "malloc()". Dans notre noyau il n'y a pas de malloc() et nous faisons ce que nous voulons de la mémoire. Nous connaissons les zones de mémoire occupées par le code et les données du noyau, qu'il ne faut surtout pas écraser sous peine de voir le noyau crasher. Nous connaissons également la taille de la RAM et nous pouvons donc choisir des adresses disponibles en toute connaissance de cause.
+Dans le cas des pointeurs, nous pouvons les utiliser comme des tableaux pour adresser chaque élément, mais nous choisissons l'adresse à laquelle se trouvent les éléments. Dans vos programmes utilisateurs, vous faisiez généralement des `malloc()`. Dans notre noyau il n'y a pas de `malloc()` et nous faisons ce que nous voulons de la mémoire. Nous connaissons les zones de mémoire occupées par le code et les données du noyau, qu'il ne faut surtout pas écraser sous peine de voir le noyau crasher. Nous connaissons également la taille de la RAM et nous pouvons donc choisir des adresses disponibles en toute connaissance de cause.
 
 ```c
 void fonction()
@@ -34,7 +33,7 @@ void fonction()
 }
 ```
 
-Dans cet exemple, tab_c est un pointeur sur entiers (ou une table d'entiers), pointant vers la zone mémoire à l'adresse 0x1234. La variable "tab_c" elle-même se trouve dans la pile de "fonction()". Mais à l'inverse d'un tableau, les éléments se trouvent à partir de 0x1234. Peu impote que la variable tab_c soit une variable locale, ce qui compte c'est la zone mémoire adressée par le pointeur.
+Dans cet exemple, tab_c est un pointeur sur entiers (ou une table d'entiers), pointant vers la zone mémoire à l'adresse 0x1234. La variable `tab_c` elle-même se trouve dans la pile de `fonction()`. Mais à l'inverse d'un tableau, les éléments se trouvent à partir de `0x1234`. Peu impote que la variable tab_c soit une variable locale, ce qui compte c'est la zone mémoire adressée par le pointeur.
 
 Le compilateur ne sait pas la taille de la zone mémoire adressée et potentiellement vous pouvez accéder à toute la mémoire à partir de cette adresse:
 
@@ -58,14 +57,14 @@ d'adressage.
 
 ### Question 4
 
-**Comme pour le PGD, allouez une PTB (pte32_t*) à l'adresse 0x601000.
+**Comme pour le PGD, allouez une PTB (pte32_t*) à l'adresse `0x601000`.**
 
-Initialisez la mémoire virtuelle en "identity mapping": les adresses virtuelles doivent être les mêmes que les adresses physiques. Pour cela il va falloir:
+**Initialisez la mémoire virtuelle en "identity mapping": les adresses virtuelles doivent être les mêmes que les adresses physiques. Pour cela il va falloir:**
 
- - Bien étudier les plages d'adresses physiques occupées par le noyau
-   (readelf -e kernel.elf, regardez les program headers).
- - Préparer au moins une entrée dans le PGD pour la PTB.
- - Préparer plusieurs entrées dans la PTB.**
+ - **Bien étudier les plages d'adresses physiques occupées par le noyau**
+   (readelf -e kernel.elf, regardez les program headers).**
+ - **Préparer au moins une entrée dans le PGD pour la PTB.**
+ - **Préparer plusieurs entrées dans la PTB.**
 
 ### Question 5
 
@@ -77,11 +76,11 @@ Initialisez la mémoire virtuelle en "identity mapping": les adresses virtuelles
 
 ### Question 7
 
-**Faites en sorte que l'adresse virtuelle 0xc0000000 vous permette de modifier votre PGD.**
+**Faites en sorte que l'adresse virtuelle `0xc0000000` vous permette de modifier votre PGD.**
 
 ### Question 8
 
-**Faites en sorte que les adresses virtuelles 0x700000 et 0x7ff000 mappent l'adresse physique 0x2000. Affichez la chaîne de caractères à ces adresses virtuelles.**
+**Faites en sorte que les adresses virtuelles `0x700000` et `0x7ff000` mappent l'adresse physique `0x2000`. Affichez la chaîne de caractères à ces adresses virtuelles.**
 
 ### Question 9
 
