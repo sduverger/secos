@@ -8,13 +8,19 @@ Le but du TP est de bien comprendre les appels systèmes. Vous pouvez directemen
 
 **Reprenez le code du TP 3 de manière à exécuter du code ring 3. Par la suite vous placerez vos expérimentations dans la fonction `userland()`. Pensez à placer une boucle infinie à la fin de cette fonction.**
 
+---
+
 ### Question 1
 
 **Essayez de déclencher l'interruption "48" de manière logicielle. Que se passe-t-il ?**
 
+---
+
 ### Question 2
 
 **Corrigez le problème de sorte qu'il soit possible d'appeler l'interruption "48" en ring 3. Inspirez-vous du TP3, attention aux piles user/kernel ! Placez un breakpoint sur l'appel à l'interruption et analysez avec Qemu l'état du processeur (info registers) avant et après l'interruption.**
+
+---
 
 ### Question 3
 
@@ -41,9 +47,13 @@ Vous pouvez constater qu'il s'agît d'une fonction C et qu'il aurait été plus 
 
 **Bonus** : Implémentez la en ASM dans "idt.s". Elle doit vous permettre d'appeler la fonction `syscall_handler()` ci-dessus.
 
+---
+
 ### Question 4
 
 **Modifiez la fonction `syscall_handler()` pour qu'elle affiche une chaîne de caractères dont l'adresse se trouve dans le registre "ESI". Nous venons de créer un appel système permettant d'afficher un message à l'écran et prenant son argument via "ESI". Essayez cet appel système depuis votre fonction `userland()`.**
+
+---
 
 ### Question 5
 
