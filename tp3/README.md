@@ -21,15 +21,15 @@ Je vous recommande de lire un peu de documentation sur l'assembleur en ligne GCC
 
 ### Question 1
 
-**Modification de la GDT.
+**Modification de la GDT.**
 
-Reprenez vos travaux du TP1 pour la création de la GDT. Ajoutez deux nouveaux descripteurs aux index de votre choix:
- - Code, 32 bits RX, ring 3, flat
- - Data, 32 bits RW, ring 3, flat**
+**Reprenez vos travaux du TP1 pour la création de la GDT. Ajoutez deux nouveaux descripteurs aux index de votre choix:**
+ - **Code, 32 bits RX, ring 3, flat**
+ - **Data, 32 bits RW, ring 3, flat**
 
 ### Question 2
 
-**Ecrivez la fonction suivante:**
+**Écrivez la fonction suivante:**
 
 ```c
 void userland()
@@ -52,9 +52,9 @@ void userland()
 
 ### Question 3.3
 
-**Essayez d'effectuer un "far jump" vers la fonction "userland()". Pour cela il faut charger dans "CS" le sélecteur de code ring 3 et dans EIP l'adresse de la fonction "userland()". Vous pouvez utiliser le type "fptr32_t" et la fonction "farjump()" de notre noyau.
+**Essayez d'effectuer un "far jump" vers la fonction "userland()". Pour cela il faut charger dans "CS" le sélecteur de code ring 3 et dans EIP l'adresse de la fonction "userland()". Vous pouvez utiliser le type "fptr32_t" et la fonction "farjump()" de notre noyau.**
 
-Quelles conclusions en tirez-vous ? Comment un noyau fait-il pour démarrer une tâche en ring 3 ?**
+**Quelles conclusions en tirez-vous ? Comment un noyau fait-il pour démarrer une tâche en ring 3 ?**
 
 ### Question 3.4
 
