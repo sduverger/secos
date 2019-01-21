@@ -18,7 +18,7 @@ par
  QEMU := $(shell which kvm)
 ```
 
-Qemu ne supporte pas "complètement" la segmentation. Il est nécessaire d'utiliser KVM à la place.
+:warning: Qemu ne supporte pas "complètement" la segmentation. Il est nécessaire d'utiliser KVM à la place.
 
 
 ## Questions
@@ -27,19 +27,23 @@ Qemu ne supporte pas "complètement" la segmentation. Il est nécessaire d'utili
 
 **Grub a démarré notre noyau en mode protégé. Il a donc configuré une GDT avant d'exécuter notre point d'entrée. Affichez le contenu de cette GDT. Que constatez-vous ?**
 
-Servez-vous des outils présents dans notre OS (get_gdtr(), seg_desc_t et gdt_reg_t)
+**Servez-vous des outils présents dans notre OS (`get_gdtr(), seg_desc_t et gdt_reg_t`)**
+
+---
 
 ### Question 2
 
-Configurez votre propre GDT contenant des descripteurs ring 0:
- - Code, 32 bits RX, flat, indice 1
- - Données, 32 bits RW, flat, indice 2
+**Configurez votre propre GDT contenant des descripteurs ring 0:**
+ - **Code, 32 bits RX, flat, indice 1**
+ - **Données, 32 bits RW, flat, indice 2**
 
-Vous pouvez placer ces descripteurs où vous le souhaitez dans la GDT. Attention de bien respecter les restrictions matérielles :
- - La GDT doit avoir une adresse de base alignée sur 8 octets
- - Le premier descripteur (indice 0) doit être NULL
+**Vous pouvez placer ces descripteurs où vous le souhaitez dans la GDT. Attention de bien respecter les restrictions matérielles :**
+ - **La GDT doit avoir une adresse de base alignée sur 8 octets**
+ - **Le premier descripteur (indice 0) doit être NULL**
 
-Chargez cette GDT, puis initialisez les registres de segments (cs/ss/ds/...) avec les bons sélecteurs afin qu'ils pointent vers vos nouveaux descripteurs.
+**Chargez cette GDT, puis initialisez les registres de segments (cs/ss/ds/...) avec les bons sélecteurs afin qu'ils pointent vers vos nouveaux descripteurs.**
+
+---
 
 ### Question 3
 
