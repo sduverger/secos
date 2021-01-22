@@ -1,4 +1,4 @@
-# Examen "Rappels OS" - TLS-SEC 2018/2019 - (c) Airbus
+# Examen SecOS - (c) Airbus
 
 L'examen consiste en la création d'un OS multi-tâches préemptif, en vous appuyant sur vos connaissances du cours et les mini TPs réalisés.
 
@@ -72,10 +72,10 @@ $ emacs ... gcc ... rage !
 $ emacs ... gcc ... fear !
 $ emacs ... gcc ... rulz :)
 
-$ git add <file> ...
+$ git add <file>
 $ git commit -m "exam finished"
 $ git format-patch $(git merge-base --fork-point master)..exam
 $ tar czf nom.prenom.tar.gz *.patch
 ```
 
-Ceci vous génère une archive compressée contenant vos modifications, que vous pouvez m'envoyer par mail à "stephane.duverger@gmail.com".
+Ceci vous génère une archive compressée contenant vos modifications, que vous pouvez m'envoyer par mail.
